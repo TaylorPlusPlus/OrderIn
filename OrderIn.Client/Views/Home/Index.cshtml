@@ -1,0 +1,9 @@
+﻿@model OrderIn.Client.Models.UserModel
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+<form asp-action="WelcomeScreen" asp-controller="Home" asp-antiforgery="true" method="GET">
+  <input name = "Name" value = "@Model.Name" type="text">
+  <button type="submit" class ="button">Enter Name</button>
+</form>
+</div>
