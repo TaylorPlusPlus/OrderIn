@@ -12,4 +12,8 @@
     <PackageReference Include="microsoft.entityframeworkcore.sqlServer" Version="5.0.10" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\OrderIn.Domain\OrderIn.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

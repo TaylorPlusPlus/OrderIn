@@ -6,16 +6,18 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using OrderIn.Client.Models;
+using OrderIn.Domain.Models;
+using OrderIn.Storage;
 
 namespace OrderIn.Client.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly OrderInRepository _repo;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(OrderInRepository injectedRepo)
         {
-            _logger = logger;
+            _repo = injectedRepo;
         }
 
         public IActionResult Index()
@@ -32,6 +34,12 @@ namespace OrderIn.Client.Controllers
         [HttpGet]
         public IActionResult WelcomeScreen(UserModel model)
         {
+            if(model.Name.Equals("COKE"))
+            {
+                Order order = new Order();
+                order.AddDrink("COKE");
+                _repo.SaveOrder(order);
+            }
             return View("WelcomeScreen", model);
         }
 

@@ -7,11 +7,11 @@ namespace OrderIn.Domain.Models
     {
         public override void SetCost()
         {
-            this._cost = 0.0f;
+            this.Cost = 0.0f;
         }
         public override void SetName()
         {
-            this._name = "Water"; 
+            this.Name = "Water"; 
         }
     }
 }

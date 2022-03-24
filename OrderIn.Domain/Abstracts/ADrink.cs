@@ -1,10 +1,10 @@
 namespace OrderIn.Domain.Abstracts
 {
-    public abstract class ADrink
+    public class ADrink:AEntity
     {
-        protected string _name;
-        protected float _cost;
-        public ADrink()
+        public string Name{get;set;}
+        public float Cost{get;set;}
+        protected ADrink()
         {
             SetName();
             SetCost();
@@ -12,5 +12,10 @@ namespace OrderIn.Domain.Abstracts
 
         public virtual void SetName(){}
         public virtual void SetCost(){}
+        
+        public string GetName()
+        {
+            return Name;
+        }
     }
 }

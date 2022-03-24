@@ -6,11 +6,11 @@ namespace OrderIn.Domain.Models
     {
         public override void SetName()
         {
-            this._name = "Coke";
+            this.Name = "Coke";
         }
         public override void SetCost()
         {
-            this._cost = 2.15f;
+            this.Cost = 2.15f;
         }
     }
 

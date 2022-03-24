@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using OrderIn.Storage;
 
 namespace OrderIn.Client
 {
@@ -24,6 +26,16 @@ namespace OrderIn.Client
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<OrderInContext>(options =>
+            {
+                 options.UseSqlServer(Configuration.GetConnectionString("sqlserver"), opts =>
+            {
+                opts.EnableRetryOnFailure(2);
+            });
+        });
+
+        services.AddScoped<OrderInRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
