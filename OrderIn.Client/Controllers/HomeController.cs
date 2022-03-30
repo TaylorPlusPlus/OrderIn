@@ -25,7 +25,6 @@ namespace OrderIn.Client.Controllers
             UserModel model = new UserModel();
             return View("Index", model);
         }
-
         public IActionResult Privacy()
         {
             return View();
@@ -38,6 +37,7 @@ namespace OrderIn.Client.Controllers
             {
                 Order order = new Order();
                 order.AddDrink("COKE");
+                order.AddAppetizers("CALAMARI");
                 _repo.SaveOrder(order);
             }
             return View("WelcomeScreen", model);

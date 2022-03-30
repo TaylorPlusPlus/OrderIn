@@ -21,6 +21,7 @@ namespace OrderIn.Storage
         {
             build.Entity<Order>().HasKey(e => e.EntityId);
             build.Entity<ADrink>().HasKey(e => e.EntityId);
+            build.Entity<AAppetizer>().HasKey(e => e.EntityId);
 
         }
         
