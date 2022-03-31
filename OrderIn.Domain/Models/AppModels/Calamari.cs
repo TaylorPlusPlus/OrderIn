@@ -21,7 +21,7 @@ namespace OrderIn.Domain.Models
 
         public double[] Tribonacci(double[] signature, int n)
         {
-            double[] arr = new double[0];
+            double[] arr = new double[n];
             // hackonacci me
             if(n == 0)
             {
@@ -38,7 +38,6 @@ namespace OrderIn.Domain.Models
                     arr[i] = arr[i - 1] + arr[i-2] + arr[i - 3];
                 }
 
-                //
 
             }
             return arr;
